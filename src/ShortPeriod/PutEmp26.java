@@ -4,7 +4,6 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Objects;
 
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.hbase.HBaseConfiguration;
@@ -42,7 +41,7 @@ public class PutEmp26 {
             String[] ls = line.split(",");
             put = new Put(ls[0].getBytes());
             for (int i = 1; i < ls.length; i++) {
-                if (!Objects.equals(ls[i], "")) {
+                if (ls[i] != "") {
                     put.addColumn(cols[i - 1].split(":")[0].getBytes(), cols[i - 1].split(":")[1].getBytes(), ls[i].getBytes());
                 }
             }
