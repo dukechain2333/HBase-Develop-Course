@@ -34,6 +34,7 @@ public class Main {
 
         AdjustData adjustData = new AdjustData();
         adjustData.putData("UsingInfo", userId, "PlayingStatus", "PlayTimes", String.valueOf(times));
+        adjustData.putData("UsingInfo", userId, "PlayingStatus", "Date", searchDate);
 
     }
 
