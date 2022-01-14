@@ -28,7 +28,7 @@ public class CreateTable {
         String tableName = "PlayerInfo";
         if (!this.admin.isTableAvailable(TableName.valueOf(tableName))) {
             HTableDescriptor ht = new HTableDescriptor(TableName.valueOf(tableName));
-            ht.addFamily(new HColumnDescriptor("Followings"));
+            ht.addFamily(new HColumnDescriptor("Followings").setMaxVersions(1000));
             this.admin.createTable(ht);
         }
         System.out.println("PlayerInfo created successfully");
@@ -38,7 +38,7 @@ public class CreateTable {
         String tableName = "GameInfo";
         if (!this.admin.isTableAvailable(TableName.valueOf(tableName))) {
             HTableDescriptor ht = new HTableDescriptor(TableName.valueOf(tableName));
-            ht.addFamily(new HColumnDescriptor("Followers"));
+            ht.addFamily(new HColumnDescriptor("Followers").setMaxVersions(1000));
             this.admin.createTable(ht);
         }
         System.out.println("GameInfo created successfully");
@@ -48,7 +48,7 @@ public class CreateTable {
         String tableName = "PlayingInfo";
         if (!this.admin.isTableAvailable(TableName.valueOf(tableName))) {
             HTableDescriptor ht = new HTableDescriptor(TableName.valueOf(tableName));
-            ht.addFamily(new HColumnDescriptor("PlayingGames"));
+            ht.addFamily(new HColumnDescriptor("PlayingGames").setMaxVersions(1000));
             this.admin.createTable(ht);
         }
         System.out.println("PlayingInfo created successfully");
