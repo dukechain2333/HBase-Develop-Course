@@ -54,6 +54,16 @@ public class CreateTable {
         System.out.println("PlayingInfo created successfully");
     }
 
+    public void createUsingInfo() throws IOException {
+        String tableName = "UsingInfo";
+        if (!this.admin.isTableAvailable(TableName.valueOf(tableName))) {
+            HTableDescriptor ht = new HTableDescriptor(TableName.valueOf(tableName));
+            ht.addFamily(new HColumnDescriptor("PlayingStatus").setMaxVersions(1000));
+            this.admin.createTable(ht);
+        }
+        System.out.println("UsingInfo created successfully");
+    }
+
     public void closeConn() throws IOException {
         this.conn.close();
         this.admin.close();
