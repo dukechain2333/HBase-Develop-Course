@@ -29,4 +29,8 @@ public class AdjustData {
         table.put(put);
         table.close();
     }
+
+    public void closeConn() throws IOException {
+        this.conn.close();
+    }
 }

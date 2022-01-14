@@ -53,4 +53,9 @@ public class CreateTable {
         }
         System.out.println("PlayingInfo created successfully");
     }
+
+    public void closeConn() throws IOException {
+        this.conn.close();
+        this.admin.close();
+    }
 }
