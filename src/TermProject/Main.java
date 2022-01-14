@@ -25,11 +25,15 @@ public class Main {
         createTable.closeConn();
         Game game = new Game();
         game.showLogin();
-        String userId = "test3";
+
+        String userId = "test1";
         String searchDate = "2022-01-14";
         List<Cell> cells = checkStatus(userId);
         int times = calculateStatus(cells, searchDate);
         System.out.println("userId: " + userId + " played " + times + " times of games on " + searchDate);
+
+        AdjustData adjustData = new AdjustData();
+        adjustData.putData("UsingInfo", userId, "PlayingStatus", "PlayTimes", String.valueOf(times));
 
     }
 
